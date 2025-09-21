@@ -63,7 +63,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <200>;
             flavor = "balanced";
         };
     };
@@ -136,41 +136,30 @@
 &kp ESCAPE        &kp N1  &kp N2                         &kp N3                             &kp N4                           &kp N5                                                                                                                    &kp N6  &kp N7                             &kp N8                               &kp N9                           &kp N0    &kp BACKSPACE
 &kp TAB           &kp Q   &kp W                          &kp E                              &kp R                            &kp T                                                                                                                     &kp Y   &kp U                              &kp I                                &kp O                            &kp P     &kp BSLH
 &kp LEFT_CONTROL  &kp A   &home_row_mod_left LEFT_ALT S  &home_row_mod_left LEFT_CONTROL D  &home_row_mod_left LEFT_SHIFT F  &kp G                                                                                                                     &kp H   &home_row_mod_right RIGHT_SHIFT J  &home_row_mod_right RIGHT_CONTROL K  &home_row_mod_right RIGHT_ALT L  &kp SEMI  &kp ENTER
-&kp LEFT_SHIFT    &kp Z   &kp X                          &kp C                              &kp V                            &kp B   &kp LEFT_ALT              &kp LEFT_WIN          &none       &none       &kp RIGHT_WIN       &kp UNDER             &kp N   &kp M                              &kp COMMA                            &kp DOT                          &kp FSLH  &kp RIGHT_SHIFT
-&magic 6 0        &none   &kp UP_ARROW                   &kp DOWN_ARROW                     &none                                    &thumb_layer 1 BACKSPACE  &thumb_layer 3 ENTER  &kp DELETE  &kp ESCAPE  &thumb_layer 4 TAB  &thumb_layer 2 SPACE          &none                              &kp LEFT_ARROW                       &kp RIGHT_ARROW                  &none     &none
+&kp LEFT_SHIFT    &kp Z   &kp X                          &kp C                              &kp V                            &kp B   &caps_word                &kp LALT              &none       &none       &kp LEFT_GUI        &kp UNDER             &kp N   &kp M                              &kp COMMA                            &kp DOT                          &kp FSLH  &kp RIGHT_SHIFT
+&magic 6 0        &none   &kp UP_ARROW                   &kp DOWN_ARROW                     &none                                    &thumb_layer 2 BACKSPACE  &thumb_layer 4 ENTER  &kp DELETE  &kp ESCAPE  &thumb_layer 3 TAB  &thumb_layer 1 SPACE          &none                              &kp LEFT_ARROW                       &kp RIGHT_ARROW                  &none     &none
             >;
         };
 
-        symbols_right {
+        symbols {
             bindings = <
-&none  &none  &none      &none         &none                                                                                   &none                 &none                  &none          &none  &none
-&none  &none  &none      &none         &none          &none                                                 &none              &none                 &none                  &none          &none  &none
-&none  &none  &none      &kp UP_ARROW  &none          &none                                                 &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR     &none  &none
-&none  &none  &kp LEFT   &kp DOWN      &kp RIGHT      &none                                                 &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &none  &none
-&none  &none  &kp ENTER  &kp SPACE     &kp BACKSPACE  &kp DELETE  &none  &none  &none  &none  &none  &none  &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SEMICOLON  &none  &none
-&none  &none  &none      &none         &none                      &none  &none  &none  &none  &none  &none                     &none                 &none                  &none          &none  &none
+&none  &none          &none      &none         &none                                                                                                              &none                 &none                  &none      &none         &none
+&none  &none          &none      &none         &none          &none                                                                            &none              &kp LESS_THAN         &kp GREATER_THAN       &kp MINUS  &none         &none
+&none  &kp PG_UP      &kp HOME   &kp UP_ARROW  &kp END        &kp PAGE_DOWN                                                                    &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH   &kp CARET     &none
+&none  &kp LESS_THAN  &kp LEFT   &kp DOWN      &kp RIGHT      &kp GREATER_THAN                                                                 &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp SLASH     &kp EXCL
+&none  &none          &kp ENTER  &kp SPACE     &kp BACKSPACE  &kp DELETE        &none  &none  &none  &kp AMPERSAND  &kp SEMICOLON  &kp DOLLAR  &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PLUS   &kp ASTERISK  &kp PERCENT
+&none  &none          &none      &none         &none                            &none  &none  &none  &kp AT_SIGN    &kp COLON      &kp EQUAL                      &none                 &kp PIPE               &kp TILDE  &none         &none
             >;
         };
 
-        symbols_left {
+        cursor {
             bindings = <
-&none  &none        &none            &none          &none                                                                                        &none          &none      &none      &none  &none
-&none  &none        &none            &none          &none             &none                                                          &none       &none          &none      &none      &none  &none
-&none  &kp HASH     &kp CARET        &kp LESS_THAN  &kp GREATER_THAN  &kp PIPE                                                       &none       &none          &kp UP     &none      &none  &none
-&none  &kp AT_SIGN  &kp EXCLAMATION  &kp PLUS       &kp MINUS         &kp AMPERSAND                                                  &none       &kp LEFT       &kp DOWN   &kp RIGHT  &none  &none
-&none  &kp TILDE    &kp PERCENT      &kp ASTERISK   &kp SLASH         &kp PERCENT    &trans     &trans  &trans  &none  &none  &none  &kp DELETE  &kp BACKSPACE  &kp SPACE  &kp ENTER  &none  &none
-&none  &none        &none            &none          &none                            &kp EQUAL  &trans  &trans  &none  &none  &none              &none          &none      &none      &none  &none
-            >;
-        };
-
-        navigation {
-            bindings = <
-&none  &none        &none            &none     &none                                                                        &none  &none  &none  &none  &none
-&none  &none        &none            &none     &none        &none                                                    &none  &none  &none  &none  &none  &none
-&none  &kp PAGE_UP  &kp LC(LS(TAB))  &kp UP    &kp LC(TAB)  &kp PAGE_DOWN                                            &none  &none  &none  &none  &none  &none
-&none  &kp HOME     &kp LEFT         &kp DOWN  &kp RIGHT    &kp END                                                  &none  &none  &none  &none  &none  &none
-&none  &none        &none            &none     &none        &none          &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none        &none            &none     &none                       &none  &none  &none  &none  &none  &none         &none  &none  &none  &none  &none
+&trans  &trans  &trans        &trans          &trans                                                                            &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans        &trans          &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans        &trans          &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans        &trans          &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans        &trans          &trans                    &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -182,6 +171,17 @@
 &trans  &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP                                                        &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &trans          &trans          &trans           &trans        &mkp MCLK  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &trans          &trans          &trans                         &mkp LCLK  &mkp RCLK  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        numpad {
+            bindings = <
+&none  &none  &none  &none  &none                                                          &none         &none         &none         &none  &none
+&none  &none  &none  &none  &none  &none                                            &none  &none         &none         &none         &none  &none
+&none  &none  &none  &none  &none  &none                                            &none  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &none  &none
+&none  &none  &none  &none  &none  &none                                            &none  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp N7        &kp N8        &kp N9        &none  &none
+&none  &none  &none  &none  &none         &none  &none  &none  &none  &none  &none         &none         &none         &none         &none  &none
             >;
         };
 
@@ -204,6 +204,28 @@
 &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                   &none  &none  &none  &none  &none  &bootloader
 &sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none         &none  &none  &none  &none  &none  &none  &none  &none  &sys_reset
 &none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &to 0
+            >;
+        };
+
+        symbols_left {
+            bindings = <
+&none  &none        &none            &none          &none                                                                                        &none          &none      &none      &none  &none
+&none  &none        &none            &none          &none             &none                                                          &none       &none          &none      &none      &none  &none
+&none  &kp HASH     &kp CARET        &kp LESS_THAN  &kp GREATER_THAN  &kp PIPE                                                       &none       &none          &kp UP     &none      &none  &none
+&none  &kp AT_SIGN  &kp EXCLAMATION  &kp PLUS       &kp MINUS         &kp AMPERSAND                                                  &none       &kp LEFT       &kp DOWN   &kp RIGHT  &none  &none
+&none  &kp TILDE    &kp PERCENT      &kp ASTERISK   &kp SLASH         &kp PERCENT    &trans     &trans  &trans  &none  &none  &none  &kp DELETE  &kp BACKSPACE  &kp SPACE  &kp ENTER  &none  &none
+&none  &none        &none            &none          &none                            &kp EQUAL  &trans  &trans  &none  &none  &none              &none          &none      &none      &none  &none
+            >;
+        };
+
+        symbols_right {
+            bindings = <
+&none  &none  &none      &none         &none                                                                                   &none                 &none                  &none          &none  &none
+&none  &none  &none      &none         &none          &none                                                 &none              &none                 &none                  &none          &none  &none
+&none  &none  &none      &kp UP_ARROW  &none          &none                                                 &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR     &none  &none
+&none  &none  &kp LEFT   &kp DOWN      &kp RIGHT      &none                                                 &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &none  &none
+&none  &none  &kp ENTER  &kp SPACE     &kp BACKSPACE  &kp DELETE  &none  &none  &none  &none  &none  &none  &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SEMICOLON  &none  &none
+&none  &none  &none      &none         &none                      &none  &none  &none  &none  &none  &none                     &none                 &none                  &none          &none  &none
             >;
         };
     };
