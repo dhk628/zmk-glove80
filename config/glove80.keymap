@@ -143,12 +143,12 @@
 
         symbols {
             bindings = <
-&none  &none          &none      &none         &none                                                                                                              &none                 &none                  &none      &none         &none
-&none  &none          &none      &none         &none          &none                                                                            &none              &kp LESS_THAN         &kp GREATER_THAN       &kp MINUS  &none         &none
-&none  &kp PG_UP      &kp HOME   &kp UP_ARROW  &kp END        &kp PAGE_DOWN                                                                    &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH   &kp CARET     &none
-&none  &kp LESS_THAN  &kp LEFT   &kp DOWN      &kp RIGHT      &kp GREATER_THAN                                                                 &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp SLASH     &kp EXCL
-&none  &none          &kp ENTER  &kp SPACE     &kp BACKSPACE  &kp DELETE        &none  &none  &none  &kp AMPERSAND  &kp SEMICOLON  &kp DOLLAR  &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PLUS   &kp ASTERISK  &kp PERCENT
-&none  &none          &none      &none         &none                            &none  &none  &none  &kp AT_SIGN    &kp COLON      &kp EQUAL                      &none                 &kp PIPE               &kp TILDE  &none         &none
+&none  &none      &none      &none         &none                                                                                                           &none                 &none                  &none      &none         &none
+&none  &none      &none      &none         &none          &none                                                                         &none              &kp LESS_THAN         &kp GREATER_THAN       &kp MINUS  &none         &none
+&none  &kp PG_UP  &none      &kp UP_ARROW  &none          &kp PAGE_DOWN                                                                 &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH   &kp CARET     &none
+&none  &kp HOME   &kp LEFT   &kp DOWN      &kp RIGHT      &kp END                                                                       &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp SLASH     &kp EXCL
+&none  &none      &kp ENTER  &kp SPACE     &kp BACKSPACE  &kp DELETE     &none  &none  &none  &kp AMPERSAND  &kp SEMICOLON  &kp DOLLAR  &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PLUS   &kp ASTERISK  &kp PERCENT
+&none  &none      &none      &none         &none                         &none  &none  &none  &kp AT_SIGN    &kp COLON      &kp EQUAL                      &none                 &kp PIPE               &kp TILDE  &none         &none
             >;
         };
 
