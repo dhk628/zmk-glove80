@@ -143,23 +143,23 @@
 
         symbols_right {
             bindings = <
-&none  &none  &none      &none      &none                                                                              &none                 &none                  &none          &none  &none
-&none  &none  &none      &none      &none          &none                                            &none              &none                 &none                  &none          &none  &none
-&none  &none  &none      &none      &none          &none                                            &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR     &none  &none
-&none  &none  &kp ENTER  &kp SPACE  &kp BACKSPACE  &none                                            &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &none  &none
-&none  &none  &none      &none      &kp DELETE     &none  &none  &none  &none  &none  &none  &none  &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SEMICOLON  &none  &none
-&none  &none  &none      &none      &none                 &none  &none  &none  &none  &none  &none                     &none                 &none                  &none          &none  &none
+&none  &none  &none      &none         &none                                                                                   &none                 &none                  &none          &none  &none
+&none  &none  &none      &none         &none          &none                                                 &none              &none                 &none                  &none          &none  &none
+&none  &none  &none      &kp UP_ARROW  &none          &none                                                 &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR     &none  &none
+&none  &none  &kp LEFT   &kp DOWN      &kp RIGHT      &none                                                 &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON      &none  &none
+&none  &none  &kp ENTER  &kp SPACE     &kp BACKSPACE  &kp DELETE  &none  &none  &none  &none  &none  &none  &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SEMICOLON  &none  &none
+&none  &none  &none      &none         &none                      &none  &none  &none  &none  &none  &none                     &none                 &none                  &none          &none  &none
             >;
         };
 
         symbols_left {
             bindings = <
-&none  &none        &none            &none          &none                                                                                   &none          &none      &none      &none  &none
-&none  &none        &none            &none          &none             &none                                                          &none  &none          &none      &none      &none  &none
-&none  &kp HASH     &kp CARET        &kp LESS_THAN  &kp GREATER_THAN  &kp PIPE                                                       &none  &none          &none      &none      &none  &none
-&none  &kp AT_SIGN  &kp EXCLAMATION  &kp PLUS       &kp MINUS         &kp AMPERSAND                                                  &none  &kp BACKSPACE  &kp SPACE  &kp ENTER  &none  &none
-&none  &kp TILDE    &kp PERCENT      &kp ASTERISK   &kp SLASH         &kp PERCENT    &trans     &trans  &trans  &none  &none  &none  &none  &kp DELETE     &none      &none      &none  &none
-&none  &none        &none            &none          &none                            &kp EQUAL  &trans  &trans  &none  &none  &none         &none          &none      &none      &none  &none
+&none  &none        &none            &none          &none                                                                                        &none          &none      &none      &none  &none
+&none  &none        &none            &none          &none             &none                                                          &none       &none          &none      &none      &none  &none
+&none  &kp HASH     &kp CARET        &kp LESS_THAN  &kp GREATER_THAN  &kp PIPE                                                       &none       &none          &kp UP     &none      &none  &none
+&none  &kp AT_SIGN  &kp EXCLAMATION  &kp PLUS       &kp MINUS         &kp AMPERSAND                                                  &none       &kp LEFT       &kp DOWN   &kp RIGHT  &none  &none
+&none  &kp TILDE    &kp PERCENT      &kp ASTERISK   &kp SLASH         &kp PERCENT    &trans     &trans  &trans  &none  &none  &none  &kp DELETE  &kp BACKSPACE  &kp SPACE  &kp ENTER  &none  &none
+&none  &none        &none            &none          &none                            &kp EQUAL  &trans  &trans  &none  &none  &none              &none          &none      &none      &none  &none
             >;
         };
 
