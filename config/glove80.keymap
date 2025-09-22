@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <mouse.dtsi>
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
@@ -62,8 +63,6 @@
 #define LOWER 1
 #define MAGIC 2
 #define FACTORY_TEST 3
-
-
 
 //------------------------------------------------------------------------
 //
