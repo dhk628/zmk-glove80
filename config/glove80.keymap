@@ -4,9 +4,9 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <mouse.dtsi>
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include "mouse.dtsi"
 
 #define OPERATING_SYSTEM 'W' // choose 'L'inux, 'M'acOS, or 'W'indows
 #define ENABLE_MOUSE_KEYS
