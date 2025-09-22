@@ -1,17 +1,56 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
-#define HYPER LC(LS(LG(LALT)))
+#define OPERATING_SYSTEM 'W' // choose 'L'inux, 'M'acOS, or 'W'indows
+#define ENABLE_MOUSE_KEYS
+
+#if OPERATING_SYSTEM == 'M'
+    #define _C      LG
+    #define _A_TAB  LGUI
+    #define _G_TAB  LALT
+    #define _REDO   _C(LS(Z))
+    #define _POWER  K_POWER
+    #define _W      LA
+    #define _HOME   _C(LEFT)
+    #define _END    _C(RIGHT)
+    #define _EMOJI  LG(LC(SPACE))
+#else
+    #define _C      LC
+    #define _A_TAB  LALT
+    #define _G_TAB  LGUI
+    #define _REDO   _C(Y)
+    #define _POWER  C_POWER
+    #define _W      _C
+    #define _HOME   HOME
+    #define _END    END
+    #define _EMOJI  LG(DOT)
+#endif
+#define _SLEEP      C_SLEEP
+#if OPERATING_SYSTEM == 'W'
+    #define _LOCK   LG(L)
+#elif OPERATING_SYSTEM == 'M'
+    #define _LOCK   _C(LC(Q))
+#elif OPERATING_SYSTEM == 'L'
+    #define _LOCK   K_LOCK
+#endif
+
+#define _UNDO       _C(Z)
+#define _CUT        _C(X)
+#define _COPY       _C(C)
+#define _PASTE      _C(V)
+#define _FIND       _C(F)
+#define _FIND_NEXT  _C(G)
+#define _FIND_PREV  _C(LS(G))
+
+#define HYPER _C(LS(LG(LALT)))
+#define NEXT_TAB _C(TAB)
+#define PREV_TAB _C(LS(TAB))
 
 // layers
 
@@ -69,6 +108,12 @@
     };
 
     macros {
+        //------------------------------------------------------------------------
+        //
+        // RGB and Bluetooth
+        //
+        //------------------------------------------------------------------------
+
         rgb_ug_status_macro: rgb_ug_status_macro_0 {
             label = "RGB_UG_STATUS";
             compatible = "zmk,behavior-macro";
@@ -104,19 +149,325 @@
             bindings = <&out OUT_BLE &bt BT_SEL 3>;
         };
 
-        select_word_right: select_word_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(RIGHT) &kp LA(LEFT_ARROW) &kp LA(LS(RIGHT))>;
-            label = "SELECT_WORD_RIGHT";
-        };
+        //------------------------------------------------------------------------
+        //
+        // Cursor macros
+        //
+        //------------------------------------------------------------------------
 
-        select_word_left: select_word_left {
-            compatible = "zmk,behavior-macro";
+        //
+        // SELECT_WORD_DELAY defines how long the macro waits (milliseconds)
+        // after moving the cursor before it selects a word.  A larger delay
+        // may allow the macro to move to the next word upon each invocation.
+        //
+        #ifndef SELECT_WORD_DELAY
+        #define SELECT_WORD_DELAY 1
+        #endif
+
+        #define select_all kp _C(A)
+
+        ZMK_MACRO(select_none,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>;
+        )
+
+        //
+        // select a word (jumps to next word upon each successive invocation)
+        //
+        select_word: select_word {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LA(LEFT) &kp LA(RIGHT) &kp LA(LS(LEFT))>;
-            label = "SELECT_WORD_LEFT";
+            bindings = <&select_word_right>, <&select_word_left>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        ZMK_MACRO(select_word_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(RIGHT) &kp _WORD(LEFT) &kp _WORD(LS(RIGHT))>;
+        )
+        ZMK_MACRO(select_word_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LEFT) &kp _WORD(RIGHT) &kp _WORD(LS(LEFT))>;
+        )
+
+        //
+        // extend current selection by one word
+        //
+        extend_word: extend_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&extend_word_right>, <&extend_word_left>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        ZMK_MACRO(extend_word_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LS(RIGHT))>;
+        )
+        ZMK_MACRO(extend_word_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LS(LEFT))>;
+        )
+
+        //
+        // select current line
+        //
+        select_line: select_line {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&select_line_right>, <&select_line_left>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        ZMK_MACRO(select_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _HOME &kp LS(_END)>;
+        )
+        ZMK_MACRO(select_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _END &kp LS(_HOME)>;
+        )
+
+        //
+        // extend current selection by one line
+        //
+        extend_line: extend_line {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&extend_line_right>, <&extend_line_left>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        ZMK_MACRO(extend_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp LS(DOWN) &kp LS(_END)>;
+        )
+        ZMK_MACRO(extend_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp LS(UP) &kp LS(_HOME)>;
+        )
+    };
+
+    //------------------------------------------------------------------------
+    //
+    // Mouse macros
+    //
+    //------------------------------------------------------------------------
+
+    //
+    // NATURAL_SCROLLING reverses the directionality of the mouse scroll wheel
+    // to support "natural scrolling" in macOS and other desktop environments.
+    //
+    //#define NATURAL_SCROLLING
+
+    #ifdef NATURAL_SCROLLING
+        #define MOUSE_SCROLL_UP    SCRL_DOWN
+        #define MOUSE_SCROLL_DOWN  SCRL_UP
+        #define MOUSE_SCROLL_LEFT  SCRL_RIGHT
+        #define MOUSE_SCROLL_RIGHT SCRL_LEFT
+    #else
+        #define MOUSE_SCROLL_UP    SCRL_UP
+        #define MOUSE_SCROLL_DOWN  SCRL_DOWN
+        #define MOUSE_SCROLL_LEFT  SCRL_LEFT
+        #define MOUSE_SCROLL_RIGHT SCRL_RIGHT
+    #endif
+
+    //
+    // MOUSE_MOTION_DELAY defines how long to wait (milliseconds) before starting
+    // to move the mouse pointer.
+    //
+
+    #ifndef MOUSE_MOTION_DELAY
+    #define MOUSE_MOTION_DELAY 0
+    #endif
+
+    //
+    // MOUSE_MOTION_ACCELERATION_EXPONENT sets how the mouse pointer accelerates:
+    //
+    // acceleration exponent 0: uniform speed
+    // acceleration exponent 1: uniform acceleration
+    // acceleration exponent 2: uniform jerk
+    //
+    #ifndef MOUSE_MOTION_ACCELERATION_EXPONENT
+    #define MOUSE_MOTION_ACCELERATION_EXPONENT 1
+    #endif
+
+    //
+    // MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED defines how long to wait (milliseconds)
+    // before the mouse pointer speed is suddenly boosted to the maximum value.
+    //
+    #ifndef MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED
+    #define MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED 300
+    #endif
+
+    //
+    // MOUSE_MOTION_MAXIMUM_SPEED defines how quickly the mouse pointer can move.
+    //
+    #ifndef MOUSE_MOTION_MAXIMUM_SPEED
+    #define MOUSE_MOTION_MAXIMUM_SPEED 600
+    #endif
+
+    //
+    // MOUSE_SCROLL_DELAY defines how long to wait (milliseconds) before starting
+    // to move the mouse pointer.
+    //
+    #ifndef MOUSE_SCROLL_DELAY
+    #define MOUSE_SCROLL_DELAY 0
+    #endif
+
+    //
+    // MOUSE_SCROLL_ACCELERATION_EXPONENT sets how the mouse pointer accelerates:
+    //
+    // acceleration exponent 0: uniform speed
+    // acceleration exponent 1: uniform acceleration
+    // acceleration exponent 2: uniform jerk
+    //
+    #ifndef MOUSE_SCROLL_ACCELERATION_EXPONENT
+    #define MOUSE_SCROLL_ACCELERATION_EXPONENT 0
+    #endif
+
+    //
+    // MOUSE_SCROLL_TIME_TO_MAXIMUM_SPEED defines how long to wait (milliseconds)
+    // before the mouse pointer speed is suddenly boosted to the maximum value.
+    //
+    #ifndef MOUSE_SCROLL_TIME_TO_MAXIMUM_SPEED
+    #define MOUSE_SCROLL_TIME_TO_MAXIMUM_SPEED 300
+    #endif
+
+    //
+    // MOUSE_SCROLL_MAXIMUM_SPEED defines how quickly the mouse wheel can scroll.
+    //
+    #ifndef MOUSE_SCROLL_MAXIMUM_SPEED
+    #define MOUSE_SCROLL_MAXIMUM_SPEED 10
+    #endif
+
+    //
+    // MOUSE_SCALER_FINE sets parameters for the &zip_xy_scaler input processor:
+    // https://zmk.dev/docs/keymaps/input-processors/scaler
+    //
+    #ifndef MOUSE_SCALER_FINE
+    #define MOUSE_SCALER_FINE 1 16
+    #endif
+
+    //
+    // MOUSE_SCALER_SLOW sets parameters for the &zip_xy_scaler input processor:
+    // https://zmk.dev/docs/keymaps/input-processors/scaler
+    //
+    #ifndef MOUSE_SCALER_SLOW
+    #define MOUSE_SCALER_SLOW 1 4
+    #endif
+
+    //
+    // MOUSE_SCALER_FAST sets parameters for the &zip_xy_scaler input processor:
+    // https://zmk.dev/docs/keymaps/input-processors/scaler
+    //
+    #ifndef MOUSE_SCALER_FAST
+    #define MOUSE_SCALER_FAST 4 1
+    #endif
+
+    //
+    // MOUSE_SCALER_WARP sets parameters for the &zip_xy_scaler input processor:
+    // https://zmk.dev/docs/keymaps/input-processors/scaler
+    //
+    #ifndef MOUSE_SCALER_WARP
+    #define MOUSE_SCALER_WARP 12 1
+    #endif
+
+    //
+    // Mouse configuration
+    //
+
+    #define ZMK_POINTING_DEFAULT_MOVE_VAL MOUSE_MOTION_MAXIMUM_SPEED
+    #define ZMK_POINTING_DEFAULT_SCRL_VAL MOUSE_SCROLL_MAXIMUM_SPEED
+
+    &mmv {
+        delay-ms = <MOUSE_MOTION_DELAY>;
+        acceleration-exponent = <MOUSE_MOTION_ACCELERATION_EXPONENT>;
+        time-to-max-speed-ms = <MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED>;
+    };
+
+    &msc {
+        delay-ms = <MOUSE_SCROLL_DELAY>;
+        acceleration-exponent = <MOUSE_SCROLL_ACCELERATION_EXPONENT>;
+        time-to-max-speed-ms = <MOUSE_SCROLL_TIME_TO_MAXIMUM_SPEED>;
+    };
+
+    //
+    // Scaling for mouse movement, based on @caksoylar's example:
+    // https://github.com/caksoylar/zmk-config/commit/0020c23c544cd7111013f0114609d1fb90e0e475
+    //
+    &mmv_input_listener {
+        #ifdef LAYER_MouseFine
+        fine {
+            layers = <LAYER_MouseFine>;
+            input-processors = <&zip_xy_scaler MOUSE_SCALER_FINE>;
+        };
+        #endif
+        #ifdef LAYER_MouseSlow
+        slow {
+            layers = <LAYER_MouseSlow>;
+            input-processors = <&zip_xy_scaler MOUSE_SCALER_SLOW>;
+        };
+        #endif
+        #ifdef LAYER_MouseFast
+        fast {
+            layers = <LAYER_MouseFast>;
+            input-processors = <&zip_xy_scaler MOUSE_SCALER_FAST>;
+        };
+        #endif
+        #ifdef LAYER_MouseWarp
+        warp {
+            layers = <LAYER_MouseWarp>;
+            input-processors = <&zip_xy_scaler MOUSE_SCALER_WARP>;
+        };
+        #endif
+    };
+
+    //
+    // Scaling for mouse scrolling, based on @caksoylar's example:
+    // https://github.com/caksoylar/zmk-config/commit/e35ee2f08788927683df7bbdd7fc73434473886e
+    //
+    / {
+        input_processors {
+        zip_scroll_scaling_processor: zip_scroll_scaling_processor {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
+        };
+    };
+    &msc_input_listener {
+        #ifdef LAYER_MouseFine
+        fine {
+            layers = <LAYER_MouseFine>;
+            input-processors = <&zip_scroll_scaling_processor MOUSE_SCALER_FINE>;
+        };
+        #endif
+        #ifdef LAYER_MouseSlow
+        slow {
+            layers = <LAYER_MouseSlow>;
+            input-processors = <&zip_scroll_scaling_processor MOUSE_SCALER_SLOW>;
+        };
+        #endif
+        #ifdef LAYER_MouseFast
+        fast {
+            layers = <LAYER_MouseFast>;
+            input-processors = <&zip_scroll_scaling_processor MOUSE_SCALER_FAST>;
+        };
+        #endif
+        #ifdef LAYER_MouseWarp
+        warp {
+            layers = <LAYER_MouseWarp>;
+            input-processors = <&zip_scroll_scaling_processor MOUSE_SCALER_WARP>;
+        };
+        #endif
     };
 
     keymap {
