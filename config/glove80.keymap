@@ -14,22 +14,26 @@
     #define _C      LG
     #define _A_TAB  LGUI
     #define _G_TAB  LALT
-    #define _REDO   _C(LS(Z))
+    #define _REDO   LG(LS(Z))
     #define _POWER  K_POWER
-    #define _W      LA
-    #define _HOME   _C(LEFT)
-    #define _END    _C(RIGHT)
+    #define _WORD   LA
+    #define _HOME   LG(LEFT)
+    #define _END    LG(RIGHT)
     #define _EMOJI  LG(LC(SPACE))
+    #define _FILES  LS(LA(M))
+    #define _GLOBE  GLOBE
 #else
     #define _C      LC
     #define _A_TAB  LALT
     #define _G_TAB  LGUI
-    #define _REDO   _C(Y)
+    #define _REDO   LC(Y)
     #define _POWER  C_POWER
-    #define _W      _C
+    #define _WORD   LC
     #define _HOME   HOME
     #define _END    END
     #define _EMOJI  LG(DOT)
+    #define _FILES  LG(E)
+    #define _GLOBE  LGUI
 #endif
 #define _SLEEP      C_SLEEP
 #if OPERATING_SYSTEM == 'W'
