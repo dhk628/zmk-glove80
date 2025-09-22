@@ -436,15 +436,13 @@
     // Scaling for mouse scrolling, based on @caksoylar's example:
     // https://github.com/caksoylar/zmk-config/commit/e35ee2f08788927683df7bbdd7fc73434473886e
     //
-    / {
-        input_processors {
+    input_processors {
         zip_scroll_scaling_processor: zip_scroll_scaling_processor {
             compatible = "zmk,input-processor-scaler";
             #input-processor-cells = <2>;
             type = <INPUT_EV_REL>;
             codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
             track-remainders;
-        };
         };
     };
     &msc_input_listener {
