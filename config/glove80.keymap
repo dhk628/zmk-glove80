@@ -63,6 +63,14 @@
 #define MAGIC 2
 #define FACTORY_TEST 3
 
+macros {
+  ZMK_MACRO(dot_dot,
+    wait-ms = <0>;
+    tap-ms = <0>;
+    bindings = <&macro_tap &kp DOT &kp DOT>;
+  )
+}
+
 //------------------------------------------------------------------------
 //
 // Mouse configuration
