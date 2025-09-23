@@ -10,6 +10,8 @@
 #include "defs.dtsi"
 
 
+#define LAYER_MouseFast 8
+
 //------------------------------------------------------------------------
 //
 // Main
@@ -337,7 +339,7 @@
             >;
         };
 
-        layer_MouseFast {
+        MouseFast {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                                                                  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
