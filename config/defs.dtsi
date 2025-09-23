@@ -44,7 +44,6 @@
 #define _FIND       _C(F)
 #define _FIND_NEXT  _C(G)
 #define _FIND_PREV  _C(LS(G))
-#define _REPLACE    _C(H)
 
 #define HYPER _C(LS(LG(LALT)))
 #define NEXT_TAB _C(TAB)
