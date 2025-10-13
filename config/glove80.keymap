@@ -7,10 +7,10 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
-#define LAYER_MouseFine 6
-#define LAYER_MouseSlow 7
-#define LAYER_MouseFast 8
-#define LAYER_MouseWarp 9
+#define LAYER_MouseFine 5
+#define LAYER_MouseSlow 6
+#define LAYER_MouseFast 7
+#define LAYER_MouseWarp 8
 
 #include "mouse.dtsi"
 #include "defs.dtsi"
