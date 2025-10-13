@@ -4,6 +4,8 @@
 //
 //------------------------------------------------------------------------
 
+#define MOUSE_SCALER_FAST 2 1
+
 //
 // NATURAL_SCROLLING reverses the directionality of the mouse scroll wheel
 // to support "natural scrolling" in macOS and other desktop environments.
