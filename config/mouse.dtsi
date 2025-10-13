@@ -96,7 +96,7 @@
 // https://zmk.dev/docs/keymaps/input-processors/scaler
 //
 #ifndef MOUSE_SCALER_FINE
-#define MOUSE_SCALER_FINE 1 6
+#define MOUSE_SCALER_FINE 1 16
 #endif
 
 //
@@ -120,7 +120,7 @@
 // https://zmk.dev/docs/keymaps/input-processors/scaler
 //
 #ifndef MOUSE_SCALER_WARP
-#define MOUSE_SCALER_WARP 6 1
+#define MOUSE_SCALER_WARP 12 1
 #endif
 
 //
