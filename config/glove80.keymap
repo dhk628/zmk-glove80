@@ -313,7 +313,7 @@
             bindings = <
 &none            &none         &none      &none                 &none                                                                                                            &none          &none      &none      &none      &none
 &none            &none         &kp MINUS  &kp LESS_THAN         &kp GREATER_THAN       &none                                                                         &none       &none          &none      &none      &none      &none
-&none            &kp CARET     &kp HASH   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOUBLE_QUOTES                                                             &none       &kp LEFT       &kp UP     &kp DOWN   &kp RIGHT  &none
+&kp DOLLAR       &kp CARET     &kp HASH   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOUBLE_QUOTES                                                             &none       &kp LEFT       &kp UP     &kp DOWN   &kp RIGHT  &none
 &kp EXCLAMATION  &kp SLASH     &kp MINUS  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE                                                              &kp DELETE  &kp BACKSPACE  &kp SPACE  &kp ENTER  &kp TAB    &kp LS(TAB)
 &kp PERCENT      &kp ASTERISK  &kp PLUS   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp GRAVE          &kp AMPERSAND  &kp SEMI   &kp DOLLAR  &none  &none  &none  &none       &none          &none      &none      &none      &none
 &none            &none         &kp TILDE  &kp PIPE              &none                                     &kp EQUAL      &kp COLON  &kp AT      &none  &none  &none              &none          &none      &none      &none      &none
