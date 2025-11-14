@@ -425,16 +425,5 @@
 &none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &to 0
             >;
         };
-
-        symbols_old {
-            bindings = <
-&none        &none      &none         &none         &none                                                                                                           &none                 &none                  &none      &none         &none
-&none        &none      &none         &none         &none          &none                                                                         &none              &kp LESS_THAN         &kp GREATER_THAN       &kp MINUS  &none         &none
-&none        &kp PG_UP  &kp _PASTE    &kp UP_ARROW  &kp _COPY      &kp PAGE_DOWN                                                                 &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH   &kp CARET     &none
-&none        &kp HOME   &kp LEFT      &kp DOWN      &kp RIGHT      &kp END                                                                       &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp SLASH     &kp EXCL
-&kp LS(TAB)  &kp TAB    &kp ENTER     &kp SPACE     &kp BACKSPACE  &kp DELETE     &none  &none  &none  &kp AMPERSAND  &kp SEMICOLON  &kp DOLLAR  &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PLUS   &kp ASTERISK  &kp PERCENT
-&none        &none      &kp PREV_TAB  &kp NEXT_TAB  &none                         &none  &none  &none  &kp AT_SIGN    &kp COLON      &kp EQUAL                      &none                 &kp PIPE               &kp TILDE  &none         &none
-            >;
-        };
     };
 };
