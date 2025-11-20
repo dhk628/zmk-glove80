@@ -278,8 +278,13 @@
         };
 
         jk {
-            bindings = <&kp UNDERSCORE>;
+            bindings = <&kp BACKSLASH>;
             key-positions = <41 42>;
+        };
+
+        sd {
+            bindings = <&kp DOLLAR>;
+            key-positions = <36 37>;
         };
     };
 
