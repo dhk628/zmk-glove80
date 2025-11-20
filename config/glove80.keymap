@@ -334,12 +334,12 @@
 
         cursor {
             bindings = <
-&none        &none      &none       &none      &none                                                                            &none             &none           &none           &none         &none
-&none        &none      &none       &none      &none          &none                                                 &none       &none             &none           &none           &none         &none
-&none        &kp PG_UP  &kp _PASTE  &kp UP     &kp _COPY      &kp PG_DN                                             &kp _CUT    &kp _FIND         &kp _FIND_NEXT  &kp _FIND_PREV  &kp _REPLACE  &none
-&none        &kp HOME   &kp LEFT    &kp DOWN   &kp RIGHT      &kp END                                               &kp _COPY   &kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp LEFT_ALT    &kp LEFT_WIN  &none
-&kp LS(TAB)  &kp TAB    &kp ENTER   &kp SPACE  &kp BACKSPACE  &kp DELETE  &none  &none  &none  &none  &none  &none  &kp _PASTE  &select_word      &select_line    &select_all     &select_none  &none
-&none        &none      &kp _REDO   &kp _UNDO  &none                      &none  &none  &none  &none  &none  &none              &none             &extend_word    &extend_line    &none         &none
+&none        &none         &none         &none           &none                                                                               &none         &none           &none           &none         &none
+&none        &none         &none         &none           &none             &none                                                 &none       &none         &none           &none           &none         &none
+&none        &none         &none         &none           &none             &none                                                 &kp _CUT    &kp _FIND     &kp _FIND_NEXT  &kp _FIND_PREV  &kp _REPLACE  &none
+&none        &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &none                                                 &kp _COPY   &kp LEFT      &kp UP_ARROW    &kp DOWN        &kp RIGHT     &none
+&kp LS(TAB)  &kp TAB       &kp ENTER     &kp SPACE       &kp BACKSPACE     &kp DELETE  &none  &none  &none  &none  &none  &none  &kp _PASTE  &select_word  &select_line    &select_all     &select_none  &none
+&none        &none         &kp _REDO     &kp _UNDO       &none                         &none  &none  &none  &none  &none  &none              &none         &extend_word    &extend_line    &none         &none
             >;
         };
 
