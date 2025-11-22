@@ -37,14 +37,16 @@
     #define _LOCK   K_LOCK
 #endif
 
-#define _UNDO       _C(Z)
-#define _CUT        _C(X)
-#define _COPY       _C(C)
-#define _PASTE      _C(V)
-#define _FIND       _C(F)
-#define _FIND_NEXT  _C(G)
-#define _FIND_PREV  _C(LS(G))
-#define _REPLACE    _C(H)
+#define _UNDO          _C(Z)
+#define _CUT           _C(X)
+#define _COPY          _C(C)
+#define _COPY_TERMINAL _C(LS(C))
+#define _PASTE         _C(V)
+#define _PASTE_PLAIN   _C(LS(V))
+#define _FIND          _C(F)
+#define _FIND_NEXT     _C(G)
+#define _FIND_PREV     _C(LS(G))
+#define _REPLACE       _C(H)
 
 #define HYPER _C(LS(LG(LALT)))
 #define NEXT_TAB _C(TAB)
