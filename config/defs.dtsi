@@ -37,6 +37,8 @@
     #define _LOCK   K_LOCK
 #endif
 
+
+// VSCODE
 #define _UNDO          _C(Z)
 #define _CUT           _C(X)
 #define _COPY          _C(C)
@@ -51,3 +53,9 @@
 #define HYPER _C(LS(LG(LALT)))
 #define NEXT_TAB _C(TAB)
 #define PREV_TAB _C(LS(TAB))
+
+#define _NEW_TERMINAL _C(LS(GRAVE))
+#define _SPLIT_TERMINAL _C(LS(5))
+#define _NEW_TERMINAL_WINDOW _C(LS(LALT(GRAVE)))
+#define _JUMP_TO_DEFINITION F12
+#define _JUMP_BACK _C(LALT(MINUS))

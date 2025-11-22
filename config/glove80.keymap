@@ -301,12 +301,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&none             &none   &kp C_PREV                     &kp C_NEXT                         &kp C_PLAY_PAUSE                                                                                                                                                                             &kp C_MUTE                         &kp C_VOLUME_DOWN                    &kp C_VOL_UP                     &none                               &none
-&kp ESCAPE        &kp N1  &kp N2                         &kp N3                             &kp N4                           &kp N5                                                                                                                                              &kp N6  &kp N7                             &kp N8                               &kp N9                           &kp N0                              &kp BACKSPACE
-&kp TAB           &kp Q   &kp W                          &kp E                              &kp R                            &kp T                                                                                                                                               &kp Y   &kp U                              &kp I                                &kp O                            &kp P                               &kp BSLH
-&kp LEFT_CONTROL  &kp A   &home_row_mod_left LEFT_ALT S  &home_row_mod_left LEFT_CONTROL D  &home_row_mod_left LEFT_SHIFT F  &kp G                                                                                                                                               &kp H   &home_row_mod_right RIGHT_SHIFT J  &home_row_mod_right RIGHT_CONTROL K  &home_row_mod_right RIGHT_ALT L  &home_row_mod_right RIGHT_WIN SEMI  &kp ENTER
-&kp LEFT_SHIFT    &kp Z   &kp X                          &kp C                              &kp V                            &kp B   &alt_tap_dance            &kp LEFT_GUI          &magic 11 0              &double_tap_lower_layer  &none               &kp CAPS              &kp N   &kp M                              &kp COMMA                            &kp DOT                          &kp FSLH                            &kp RIGHT_SHIFT
-&none             &none   &kp UP_ARROW                   &kp DOWN_ARROW                     &none                                    &thumb_layer 1 BACKSPACE  &thumb_layer 3 ENTER  &thumb_layer 9 DELETE    &kp ESCAPE               &thumb_layer 4 TAB  &thumb_layer 2 SPACE          &none                              &kp LEFT_ARROW                       &kp RIGHT_ARROW                  &none                               &none
+&none             &none      &kp C_PREV                     &kp C_NEXT                         &kp C_PLAY_PAUSE                                                                                                                                                                             &kp C_MUTE                         &kp C_VOLUME_DOWN                    &kp C_VOL_UP                     &none                               &none
+&kp ESCAPE        &kp N1     &kp N2                         &kp N3                             &kp N4                           &kp N5                                                                                                                                              &kp N6  &kp N7                             &kp N8                               &kp N9                           &kp N0                              &kp BACKSPACE
+&kp TAB           &kp Q      &kp W                          &kp E                              &kp R                            &kp T                                                                                                                                               &kp Y   &kp U                              &kp I                                &kp O                            &kp P                               &kp BSLH
+&kp LEFT_CONTROL  &kp A      &home_row_mod_left LEFT_ALT S  &home_row_mod_left LEFT_CONTROL D  &home_row_mod_left LEFT_SHIFT F  &kp G                                                                                                                                               &kp H   &home_row_mod_right RIGHT_SHIFT J  &home_row_mod_right RIGHT_CONTROL K  &home_row_mod_right RIGHT_ALT L  &home_row_mod_right RIGHT_WIN SEMI  &kp ENTER
+&kp LEFT_SHIFT    &kp Z      &kp X                          &kp C                              &kp V                            &kp B   &alt_tap_dance            &kp LEFT_GUI          &magic 11 0              &double_tap_lower_layer  &none               &kp CAPS              &kp N   &kp M                              &kp COMMA                            &kp DOT                          &kp FSLH                            &kp RIGHT_SHIFT
+&none             &kp HOME   &kp END                        &kp UP_ARROW                       &kp DOWN_ARROW                           &thumb_layer 1 BACKSPACE  &thumb_layer 3 ENTER  &thumb_layer 9 DELETE    &kp ESCAPE               &thumb_layer 4 TAB  &thumb_layer 2 SPACE          &kp LEFT_ARROW                     &kp RIGHT_ARROW                      &kp PG_UP                        &kp PG_DN                           &none
             >;
         };
 
@@ -317,7 +317,7 @@
 &none        &kp _PASTE_PLAIN  &kp _PASTE  &kp UP     &kp _COPY      &kp _CUT                                                                     &kp ASTERISK  &kp N4  &kp N5          &kp N6     &kp SLASH    &kp DOLLAR
 &kp LA(TAB)  &kp HOME          &kp LEFT    &kp DOWN   &kp RIGHT      &kp END                                                                      &kp PLUS      &kp N1  &kp N2          &kp N3     &kp MINUS    &kp TILDE
 &kp LS(TAB)  &kp TAB           &kp ENTER   &kp SPACE  &kp BACKSPACE  &kp DELETE  &none  &none  &none  &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL  &kp COLON     &kp N7  &kp N8          &kp N9     &kp PERCENT  &kp HASH
-&none        &none             &none       &none      &none                      &none  &none  &none  &kp COMMA      &kp PERIOD        &kp N0                   &none   &kp UNDERSCORE  &kp CARET  &none        &none
+&none        &none             &kp LALT    &kp LC     &kp LS                     &none  &none  &none  &kp COMMA      &kp PERIOD        &kp N0                   &none   &kp UNDERSCORE  &kp CARET  &none        &none
             >;
         };
 
@@ -400,12 +400,12 @@
 
         function {
             bindings = <
-&none  &none         &none         &none             &none                                                                                            &none   &none   &none   &none    &none
-&none  &none         &none         &none             &none           &none                                                                     &none  &none   &none   &none   &none    &none
-&none  &none         &none         &none             &none           &none                                                                     &none  &kp F4  &kp F5  &kp F6  &kp F11  &none
-&none  &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none                                                                     &none  &kp F1  &kp F2  &kp F3  &kp F10  &none
-&none  &none         &none         &none             &none           &none  &none  &none  &none  &none           &none       &kp C_MUTE        &none  &kp F7  &kp F8  &kp F9  &kp F12  &none
-&none  &none         &none         &none             &none                  &none  &none  &none  &kp C_PREVIOUS  &kp C_NEXT  &kp C_PLAY_PAUSE         &none   &none   &none   &none    &none
+&none  &none         &none           &none                    &none                                                                                                      &none   &none   &none   &none    &none
+&none  &none         &none           &none                    &none                     &none                                                                     &none  &none   &none   &none   &none    &none
+&none  &none         &none           &none                    &kp _SPLIT_TERMINAL       &none                                                                     &none  &kp F4  &kp F5  &kp F6  &kp F11  &none
+&none  &none         &kp _JUMP_BACK  &kp _JUMP_TO_DEFINITION  &kp _NEW_TERMINAL         &none                                                                     &none  &kp F1  &kp F2  &kp F3  &kp F10  &none
+&none  &none         &none           &none                    &kp _NEW_TERMINAL_WINDOW  &none  &none  &none  &none  &none           &none       &kp C_MUTE        &none  &kp F7  &kp F8  &kp F9  &kp F12  &none
+&none  &none         &none           &none                    &none                            &none  &none  &none  &kp C_PREVIOUS  &kp C_NEXT  &kp C_PLAY_PAUSE         &none   &none   &none   &none    &none
             >;
         };
 
