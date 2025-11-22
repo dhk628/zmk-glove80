@@ -317,7 +317,7 @@
 &none        &kp _PASTE_PLAIN  &kp _PASTE  &kp UP     &kp _COPY      &kp _CUT                                                                     &kp ASTERISK  &kp N4  &kp N5          &kp N6     &kp SLASH    &kp DOLLAR
 &kp LA(TAB)  &kp HOME          &kp LEFT    &kp DOWN   &kp RIGHT      &kp END                                                                      &kp PLUS      &kp N1  &kp N2          &kp N3     &kp MINUS    &kp TILDE
 &kp LS(TAB)  &kp TAB           &kp ENTER   &kp SPACE  &kp BACKSPACE  &kp DELETE  &none  &none  &none  &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL  &kp COLON     &kp N7  &kp N8          &kp N9     &kp PERCENT  &kp HASH
-&none        &none             &kp LALT    &kp LC     &kp LS                     &none  &none  &none  &kp COMMA      &kp PERIOD        &kp N0                   &none   &kp UNDERSCORE  &kp CARET  &none        &none
+&none        &none             &kp LALT    &kp LCTRL  &kp LSHFT                  &none  &none  &none  &kp COMMA      &kp PERIOD        &kp N0                   &none   &kp UNDERSCORE  &kp CARET  &none        &none
             >;
         };
 
