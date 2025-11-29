@@ -54,6 +54,7 @@
 #define NEXT_TAB _C(TAB)
 #define PREV_TAB _C(LS(TAB))
 
+#define _FOCUS_TERMINAL _C(GRAVE)
 #define _NEW_TERMINAL _C(LS(GRAVE))
 #define _SPLIT_TERMINAL _C(LS(N5))
 #define _NEW_TERMINAL_WINDOW _C(LS(LA(GRAVE)))

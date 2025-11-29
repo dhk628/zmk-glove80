@@ -323,12 +323,12 @@
 
         symbols {
             bindings = <
-&none            &none         &none      &none                 &none                                                                                                            &none          &none      &none      &none      &none
-&none            &none         &kp MINUS  &kp LESS_THAN         &kp GREATER_THAN       &none                                                                         &none       &none          &none      &none      &none      &none
-&kp DOLLAR       &kp CARET     &kp HASH   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOUBLE_QUOTES                                                             &none       &kp LEFT       &kp UP     &kp DOWN   &kp RIGHT  &none
-&kp EXCLAMATION  &kp SLASH     &kp MINUS  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE                                                              &kp DELETE  &kp BACKSPACE  &kp SPACE  &kp ENTER  &kp TAB    &kp LS(TAB)
-&kp PERCENT      &kp ASTERISK  &kp PLUS   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp GRAVE          &kp AMPERSAND  &kp SEMI   &kp DOLLAR  &none  &none  &none  &none       &none          &none      &none      &none      &none
-&none            &none         &kp TILDE  &kp PIPE              &none                                     &kp EQUAL      &kp COLON  &kp AT      &none  &none  &none              &none          &none      &none      &none      &none
+&none            &none         &none      &none                 &none                                                                                                            &none          &none            &none         &none      &none
+&none            &none         &kp MINUS  &kp LESS_THAN         &kp GREATER_THAN       &none                                                                         &none       &none          &none            &none         &none      &none
+&kp DOLLAR       &kp CARET     &kp HASH   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOUBLE_QUOTES                                                             &none       &kp LEFT       &kp UP           &kp DOWN      &kp RIGHT  &none
+&kp EXCLAMATION  &kp SLASH     &kp MINUS  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE                                                              &kp DELETE  &kp BACKSPACE  &kp SPACE        &kp ENTER     &kp TAB    &kp LS(TAB)
+&kp PERCENT      &kp ASTERISK  &kp PLUS   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp GRAVE          &kp AMPERSAND  &kp SEMI   &kp DOLLAR  &none  &none  &none  &none       &kp LEFT_SHIFT &kp LEFT_CONTROL &kp LEFT_ALT  &none      &none
+&none            &none         &none      &kp TILDE             &kp PIPE                                  &kp EQUAL      &kp COLON  &kp AT      &none  &none  &none              &none          &none            &none         &none      &none
             >;
         };
 
@@ -400,12 +400,12 @@
 
         function {
             bindings = <
-&none  &none         &none           &none                    &none                                                                                                      &none   &none   &none   &none    &none
-&none  &none         &none           &none                    &none                     &none                                                                     &none  &none   &none   &none   &none    &none
-&none  &none         &none           &none                    &kp _SPLIT_TERMINAL       &none                                                                     &none  &kp F4  &kp F5  &kp F6  &kp F11  &none
-&none  &none         &kp _JUMP_BACK  &kp _JUMP_TO_DEFINITION  &kp _NEW_TERMINAL         &none                                                                     &none  &kp F1  &kp F2  &kp F3  &kp F10  &none
-&none  &none         &none           &none                    &kp _NEW_TERMINAL_WINDOW  &none  &none  &none  &none  &none           &none       &kp C_MUTE        &none  &kp F7  &kp F8  &kp F9  &kp F12  &none
-&none  &none         &none           &none                    &none                            &none  &none  &none  &kp C_PREVIOUS  &kp C_NEXT  &kp C_PLAY_PAUSE         &none   &none   &none   &none    &none
+&none  &none         &none           &none                    &none                                                                                                                  &none   &none   &none   &none    &none
+&none  &none         &none           &none                    &none                     &none                                                                                 &none  &none   &none   &none   &none    &none
+&none  &none         &none           &none                    &kp _SPLIT_TERMINAL       &none                                                                                 &none  &kp F4  &kp F5  &kp F6  &kp F11  &none
+&none  &none         &kp _JUMP_BACK  &kp _JUMP_TO_DEFINITION  &kp _FOCUS_TERMINAL       &kp _NEW_TERMINAL                                                                     &none  &kp F1  &kp F2  &kp F3  &kp F10  &none
+&none  &none         &none           &none                    &kp _NEW_TERMINAL_WINDOW  &none              &none  &none  &none  &none           &none       &kp C_MUTE        &none  &kp F7  &kp F8  &kp F9  &kp F12  &none
+&none  &none         &none           &none                    &none                                        &none  &none  &none  &kp C_PREVIOUS  &kp C_NEXT  &kp C_PLAY_PAUSE         &none   &none   &none   &none    &none
             >;
         };
 
