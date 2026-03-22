@@ -286,6 +286,11 @@
             bindings = <&kp DOLLAR>;
             key-positions = <36 37>;
         };
+
+        toggle_gaming {
+            bindings = <&tog 12>;
+            key-positions = <51 68>;
+        };
     };
 
     keymap {
