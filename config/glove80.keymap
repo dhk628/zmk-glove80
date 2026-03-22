@@ -288,7 +288,7 @@
         };
 
         toggle_gaming {
-            bindings = <&tog 0>;
+            bindings = <&tog 12>;
             key-positions = <51 68>;
         };
     };
