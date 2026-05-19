@@ -35,7 +35,7 @@
             bindings = <&mo>, <&rgb_ug_status_macro>;
         };
 
-        home_row_mod_left: home_row_mod_left {
+        hrml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_ROW_MOD_LEFT";
             bindings = <&kp>, <&kp>;
@@ -46,7 +46,7 @@
             hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79 55 38 37 36 35>;
         };
 
-        home_row_mod_right: home_row_mod_right {
+        hrmr: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_ROW_MOD_RIGHT";
             bindings = <&kp>, <&kp>;
@@ -57,7 +57,7 @@
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71 41 42 43 44>;
         };
 
-        thumb_layer: thumb_layer {
+        thl: thumb_layer {
             compatible = "zmk,behavior-hold-tap";
             label = "THUMB_LAYER";
             bindings = <&mo>, <&kp>;
@@ -243,7 +243,7 @@
             bindings = <&kp LEFT_ALT>, <&kp RIGHT_ALT>;
         };
 
-        double_tap_lower_layer: double_tap_lower_layer {
+        dtll: double_tap_lower_layer {
             compatible = "zmk,behavior-tap-dance";
             label = "DOUBLE_TAP_LOWER_LAYER";
             #binding-cells = <0>;
@@ -286,13 +286,6 @@
             bindings = <&kp DOLLAR>;
             key-positions = <36 37>;
         };
-    };
-
-    aliases {
-        hrml = &home_row_mod_left;
-        hrmr = &home_row_mod_right;
-        thl = &thumb_layer;
-        dtll = &double_tap_lower_layer;
     };
 
     keymap {
