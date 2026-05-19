@@ -292,7 +292,7 @@
         hrml = &home_row_mod_left;
         hrmr = &home_row_mod_right;
         thl = &thumb_layer;
-        dtll = &double_tap_lower_layer
+        dtll = &double_tap_lower_layer;
     };
 
     keymap {
