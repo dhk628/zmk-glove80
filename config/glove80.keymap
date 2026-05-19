@@ -292,14 +292,6 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  F1   |  F2 |  F3 |  F4  |  F5  |                                                               |  F6   |  F7   |  F8  |   F9  |  F10 |
-            // |  =    |  1  |  2  |  3   |  4   |  5   |                                                 |  6   |   7   |   8   |  9   |   0   |   -  |
-            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                                 |  Y   |   U   |   I   |  O   |   P   |   \  |
-            // |  ESC  |  A  |  S  |  D   |  F   |  G   |                                                 |  H   |   J   |   K   |  L   |   ;   |   '  |
-            // |   `   |  Z  |  X  |  C   |  V   |  B   | LSHFT | LCTRL | LOWER | | LGUI  | RCTRL | RSHFT |  N   |   M   |   ,   |  .   |   /   | PGUP |
-            // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
-
             bindings = <
 &none      &none     &kp C_PREV    &kp C_NEXT     &kp C_PP                                                                                                        &kp C_MUTE     &kp C_VOL_DN   &kp C_VOL_UP  &none            &none
 &kp ESC    &kp N1    &kp N2        &kp N3         &kp N4         &kp N5                                                                                   &kp N6  &kp N7         &kp N8         &kp N9        &kp N0           &kp BSPC
@@ -310,16 +302,27 @@
             >;
         };
 
-        navnum {
+        cursor {
             bindings = <
-&none        &none             &none       &none      &none                                                                                                     &none      &none      &none     &none        &none
-&none        &kp F1            &kp F2      &kp F3     &kp F4         &kp F5                                                                       &kp F6        &kp F7     &kp F8     &kp F9    &kp F10      &kp DOLLAR
-&none        &kp _PASTE_PLAIN  &kp _PASTE  &kp UP     &kp _COPY      &kp _CUT                                                                     &kp ASTERISK  &kp N4     &kp N5     &kp N6    &kp SLASH    &kp CARET
-&kp LA(TAB)  &kp HOME          &kp LEFT    &kp DOWN   &kp RIGHT      &kp END                                                                      &kp PLUS      &kp N1     &kp N2     &kp N3    &kp MINUS    &kp TILDE
-&kp LS(TAB)  &kp TAB           &kp ENTER   &kp SPACE  &kp BACKSPACE  &kp DELETE  &none  &none  &none  &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL  &kp COLON     &kp N7     &kp N8     &kp N9    &kp PERCENT  &kp UNDERSCORE
-&none        &none             &kp LBKT    &kp LBRC   &kp LPAR                   &none  &none  &none  &kp COMMA      &kp PERIOD        &kp N0                   &kp LSHFT  &kp LCTRL  &kp LALT  &none        &none
+&none  &none             &none            &none                    &none                                                                                                                      &none         &none         &none         &none        &none
+&none  &kp F1            &kp F2           &kp F3                   &kp F4     &kp F5                                                                                              &kp F6      &kp F7        &kp F8        &kp F9        &kp F10      &none
+&none  &kp _PASTE_PLAIN  &kp _PASTE       &kp UP                   &kp _COPY  &kp _COPY_TERMINAL                                                                                  &kp DEL     &kp BSPC      &kp SPACE     &kp ENTER     &kp TAB      &LS(TAB)
+&none  &kp HOME          &kp LEFT         &kp DOWN                 &kp RIGHT  &kp END                                                                                             &kp _COPY   &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI     &none
+&none  &kp PG_UP         &kp _JUMP_BACK   &kp _JUMP_TO_DEFINITION  &kp _CUT   &kp PG_DN          &none  &none  &none     &none             &none           &_NEW_TERMINAL_WINDOW  &kp _PASTE  &kp _FIND     &select_word  &select_line  &select_all  &select_none
+&none  &none             &kp LBKT         &kp LBRC                 &kp LPAR                      &none  &none  &none     &_SPLIT_TERMINAL  &_NEW_TERMINAL  &_FOCUS_TERMINAL                   &none       &extend_word  &extend_line  &none         &none
             >;
         };
+
+//         navnum {
+//             bindings = <
+// &none        &none             &none       &none      &none                                                                                                     &none      &none      &none     &none        &none
+// &none        &kp F1            &kp F2      &kp F3     &kp F4         &kp F5                                                                       &kp F6        &kp F7     &kp F8     &kp F9    &kp F10      &kp DOLLAR
+// &none        &kp _PASTE_PLAIN  &kp _PASTE  &kp UP     &kp _COPY      &kp _CUT                                                                     &kp ASTERISK  &kp N4     &kp N5     &kp N6    &kp SLASH    &kp CARET
+// &kp LA(TAB)  &kp HOME          &kp LEFT    &kp DOWN   &kp RIGHT      &kp END                                                                      &kp PLUS      &kp N1     &kp N2     &kp N3    &kp MINUS    &kp TILDE
+// &kp LS(TAB)  &kp TAB           &kp ENTER   &kp SPACE  &kp BACKSPACE  &kp DELETE  &none  &none  &none  &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL  &kp COLON     &kp N7     &kp N8     &kp N9    &kp PERCENT  &kp UNDERSCORE
+// &none        &none             &kp LBKT    &kp LBRC   &kp LPAR                   &none  &none  &none  &kp COMMA      &kp PERIOD        &kp N0                   &kp LSHFT  &kp LCTRL  &kp LALT  &none        &none
+//             >;
+//         };
 
         symbols {
             bindings = <
@@ -332,16 +335,27 @@
             >;
         };
 
-        cursor {
+        num {
             bindings = <
-&none        &none      &none       &none              &none                                                                                             &none           &none             &none           &none         &none
-&none        &none      &none       &none              &none             &none                                                               &none       &none           &none             &none           &none         &none
-&none        &kp PG_UP  &kp _PASTE  &kp UP             &kp _COPY         &kp PG_DN                                                           &kp _CUT    &kp _FIND       &kp _FIND_NEXT    &kp _FIND_PREV  &kp _REPLACE  &none
-&none        &kp HOME   &kp LEFT    &kp DOWN           &kp RIGHT         &kp END                                                             &kp _COPY   &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT    &kp LEFT_WIN  &none
-&kp LS(TAB)  &kp TAB    &kp ENTER   &kp SPACE          &kp BACKSPACE     &kp DELETE  &none  &none  &none  &none  &none  &none                &kp _PASTE  &none           &select_word      &select_line    &select_all   &select_none
-&none        &none      &kp GRAVE   &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE              &none  &none  &none  &none  &none  &kp _FOCUS_TERMINAL              &none           &extend_word      &extend_line    &none         &none
+&none        &none             &none       &none      &none                                                                                                     &none      &none      &none     &none        &none
+&none        &kp F1            &kp F2      &kp F3     &kp F4         &kp F5                                                                       &kp F6        &kp F7     &kp F8     &kp F9    &kp F10      &kp DOLLAR
+&none        &kp _PASTE_PLAIN  &kp _PASTE  &kp UP     &kp _COPY      &kp _CUT                                                                     &kp ASTERISK  &kp N7     &kp N8     &kp N9    &kp SLASH    &kp CARET
+&kp LA(TAB)  &kp HOME          &kp LEFT    &kp DOWN   &kp RIGHT      &kp END                                                                      &kp PLUS      &kp N4     &kp N5     &kp N6    &kp MINUS    &kp TILDE
+&kp LS(TAB)  &kp TAB           &kp ENTER   &kp SPACE  &kp BACKSPACE  &kp DELETE  &none  &none  &none  &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL  &kp COLON     &kp N1     &kp N2     &kp N3    &kp PERCENT  &kp UNDERSCORE
+&none        &none             &kp GRAVE   &kp DQT    &kp SQT                    &none  &none  &none  &kp COMMA      &kp PERIOD        &kp N0                   &kp LSHFT  &kp LCTRL  &kp LALT  &none        &none
             >;
         };
+
+//         cursor {
+//             bindings = <
+// &none        &none      &none       &none              &none                                                                                             &none           &none             &none           &none         &none
+// &none        &none      &none       &none              &none             &none                                                               &none       &none           &none             &none           &none         &none
+// &none        &kp PG_UP  &kp _PASTE  &kp UP             &kp _COPY         &kp PG_DN                                                           &kp _CUT    &kp _FIND       &kp _FIND_NEXT    &kp _FIND_PREV  &kp _REPLACE  &none
+// &none        &kp HOME   &kp LEFT    &kp DOWN           &kp RIGHT         &kp END                                                             &kp _COPY   &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT    &kp LEFT_WIN  &none
+// &kp LS(TAB)  &kp TAB    &kp ENTER   &kp SPACE          &kp BACKSPACE     &kp DELETE  &none  &none  &none  &none  &none  &none                &kp _PASTE  &none           &select_word      &select_line    &select_all   &select_none
+// &none        &none      &kp GRAVE   &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE              &none  &none  &none  &none  &none  &kp _FOCUS_TERMINAL              &none           &extend_word      &extend_line    &none         &none
+//             >;
+//         };
 
         mouse {
             bindings = <
