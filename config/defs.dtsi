@@ -49,9 +49,10 @@
 #define _FIND_PREV     _C(LS(G))
 #define _REPLACE       _C(H)
 
-#define HYPER _C(LS(LG(LALT)))
-#define NEXT_TAB _C(TAB)
-#define PREV_TAB _C(LS(TAB))
+#define _MEH _C(LS(LALT))
+#define _HYPER _C(LS(LG(LALT)))
+#define _NEXT_TAB _C(TAB)
+#define _PREV_TAB _C(LS(TAB))
 
 // VSCODE
 #define _FOCUS_TERMINAL _C(GRAVE)
@@ -60,6 +61,6 @@
 #define _NEW_TERMINAL_WINDOW _C(LS(LA(GRAVE)))
 #define _SWITCH_TERMINAL_WINDOW _C(PGDN)
 #define _SWITCH_TERMINAL_WINDOW_IN_GRP LS(DN)
-#define _KILL_TERMINAL_WINDOW HYPER(K)
+#define _KILL_TERMINAL_WINDOW _HYPER(F1)
 #define _JUMP_TO_DEFINITION F12
 #define _JUMP_BACK _C(LA(MINUS))
