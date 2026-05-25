@@ -79,7 +79,6 @@
         rgb_ug_status_macro: rgb_ug_status_macro_0 {
             label = "RGB_UG_STATUS";
             compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
             bindings = <&rgb_ug RGB_STATUS>;
         };
 
@@ -129,12 +128,10 @@
         #define select_all kp _C(A)
 
         ZMK_MACRO(
-
-        select_none,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>;
-
+            select_none,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>;
         )
 
         //
@@ -150,20 +147,17 @@
         };
 
         ZMK_MACRO(
-
-        select_word_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _WORD(RIGHT) &kp _WORD(LEFT) &kp _WORD(LS(RIGHT))>;
-
+            select_word_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(RIGHT) &kp _WORD(LEFT) &kp _WORD(LS(RIGHT))>;
         )
+
         ZMK_MACRO(
-
-        select_word_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _WORD(LEFT) &kp _WORD(RIGHT) &kp _WORD(LS(LEFT))>;
-
+            select_word_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LEFT) &kp _WORD(RIGHT) &kp _WORD(LS(LEFT))>;
         )
 
         //
@@ -179,20 +173,17 @@
         };
 
         ZMK_MACRO(
-
-        extend_word_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _WORD(LS(RIGHT))>;
-
+            extend_word_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LS(RIGHT))>;
         )
+
         ZMK_MACRO(
-
-        extend_word_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _WORD(LS(LEFT))>;
-
+            extend_word_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LS(LEFT))>;
         )
 
         //
@@ -208,20 +199,17 @@
         };
 
         ZMK_MACRO(
-
-        select_line_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _HOME &kp LS(_END)>;
-
+            select_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _HOME &kp LS(_END)>;
         )
+
         ZMK_MACRO(
-
-        select_line_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _END &kp LS(_HOME)>;
-
+            select_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _END &kp LS(_HOME)>;
         )
 
         //
@@ -236,6 +224,49 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        ZMK_MACRO(
+            extend_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp LS(DOWN) &kp LS(_END)>;
+        )
+
+        ZMK_MACRO(
+            extend_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp LS(UP) &kp LS(_HOME)>;
+        )
+
+        //------------------------------------------------------------------------
+        //
+        // VSCode macros
+        //
+        //------------------------------------------------------------------------
+
+        focus_terminal: focus_terminal {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&focus_next_terminal>, <&focus_previous_terminal>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        }
+
+        ZMK_MACRO(
+            focus_next_terminal,
+            bindings = <&kp _HYPER(F1)>
+        )
+
+        ZMK_MACRO(
+            focus_previous_terminal,
+            bindings = <&kp _HYPER(F2)>
+        )
+
+        //------------------------------------------------------------------------
+        //
+        // Other macros
+        //
+        //------------------------------------------------------------------------
+
         alt_tap_dance: alt_tap_dance {
             compatible = "zmk,behavior-tap-dance";
             label = "ALT_TAP_DANCE";
@@ -249,23 +280,6 @@
             #binding-cells = <0>;
             bindings = <&none>, <&to 10>;
         };
-
-        ZMK_MACRO(
-
-        extend_line_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp LS(DOWN) &kp LS(_END)>;
-
-        )
-        ZMK_MACRO(
-
-        extend_line_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp LS(UP) &kp LS(_HOME)>;
-
-        )
     };
 
     combos {
