@@ -249,7 +249,7 @@
             #binding-cells = <0>;
             bindings = <&focus_next_terminal>, <&focus_previous_terminal>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        }
+        };
 
         ZMK_MACRO(
             focus_next_terminal,
@@ -259,6 +259,57 @@
         ZMK_MACRO(
             focus_previous_terminal,
             bindings = <&kp _HYPER(F2)>;
+        )
+
+        new_or_kill_terminal: new_or_kill_terminal {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&new_terminal>, <&kill_terminal>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ZMK_MACRO(
+            new_terminal,
+            bindings = <&kp _HYPER(F3)>;
+        )
+
+        ZMK_MACRO(
+            kill_terminal,
+            bindings = <&kp _HYPER(F4)>;
+        )
+
+        split_or_unsplit_terminal: split_or_unsplit_terminal {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&split_terminal>, <&unsplit_terminal>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ZMK_MACRO(
+            split_terminal,
+            bindings = <&kp _HYPER(F5)>;
+        )
+
+        ZMK_MACRO(
+            unsplit_terminal,
+            bindings = <&kp _HYPER(F6)>;
+        )
+
+        switch_terminal_in_group: switch_terminal_in_group {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&switch_terminal_in_group_next>, <&switch_terminal_in_group_previous>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ZMK_MACRO(
+            switch_terminal_in_group_next,
+            bindings = <&kp LA(DN)>;
+        )
+
+        ZMK_MACRO(
+            switch_terminal_in_group_previous,
+            bindings = <&kp LA(UP)>;
         )
 
         //------------------------------------------------------------------------
