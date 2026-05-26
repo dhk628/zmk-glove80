@@ -49,8 +49,9 @@
 #define _FIND_PREV     _C(LS(G))
 #define _REPLACE       _C(H)
 
-#define _MEH _C(LS(LALT))
-#define _HYPER _C(LS(LG(LALT)))
+#define _MEH(key)   _C(LS(LA(key)))
+#define _HYPER(key) _C(LS(LA(LG(key))))
+
 #define _NEXT_TAB _C(TAB)
 #define _PREV_TAB _C(LS(TAB))
 
