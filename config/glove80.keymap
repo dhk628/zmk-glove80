@@ -304,7 +304,7 @@
 
         ZMK_MACRO(
             switch_terminal_in_group_next,
-            bindings = <&kp LA(DN)>;
+            bindings = <&kp LA(DOWN)>;
         )
 
         ZMK_MACRO(
