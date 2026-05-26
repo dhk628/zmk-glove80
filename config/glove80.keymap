@@ -253,12 +253,12 @@
 
         ZMK_MACRO(
             focus_next_terminal,
-            bindings = <&kp _HYPER(F1)>
+            bindings = <&kp _HYPER(F1)>;
         )
 
         ZMK_MACRO(
             focus_previous_terminal,
-            bindings = <&kp _HYPER(F2)>
+            bindings = <&kp _HYPER(F2)>;
         )
 
         //------------------------------------------------------------------------
