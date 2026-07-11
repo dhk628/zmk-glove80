@@ -397,6 +397,11 @@
             bindings = <&tog 12>;
             key-positions = <51 68>;
         };
+
+        df {
+            bindings = <&kp UNDER>;
+            key-positions = <37 38>;
+        };
     };
 
     keymap {
@@ -441,8 +446,8 @@
 &none            &none         &kp MINUS  &kp LESS_THAN  &kp GREATER_THAN  &none                                                                 &none       &none           &none             &none         &none      &none
 &kp DOLLAR       &kp CARET     &kp HASH   &kp LBKT       &kp RBKT          &kp SQT                                                               &kp DEL     &kp BACKSPACE   &kp SPACE         &kp RET       &kp TAB    &none
 &kp EXCLAMATION  &kp PLUS      &kp MINUS  &kp LPAR       &kp RPAR          &kp DQT                                                               &none       &kp LEFT        &kp UP            &kp DOWN      &kp RIGHT  &none
-&kp PERCENT      &kp ASTERISK  &kp SLASH  &kp COLON      &kp UNDER         &kp GRAVE  &kp DOLLAR  &kp PIPE   &kp AMPERSAND  &none  &none  &none  &kp DELETE  &kp BACKSPACE   &kp SPACE         &kp ENTER     &kp TAB    &kp LS(TAB)
-&none            &none         &none      &kp LBRC       &kp RBRC                     &kp EQUAL   &kp TILDE  &kp AT         &none  &none  &none              &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &none      &none
+&kp PERCENT      &kp ASTERISK  &kp SLASH  &kp LBRC       &kp RBRC          &kp GRAVE  &kp DOLLAR  &kp PIPE   &kp AMPERSAND  &none  &none  &none  &kp DELETE  &kp BACKSPACE   &kp SPACE         &kp ENTER     &kp TAB    &kp LS(TAB)
+&none            &none         &none      &kp TILDE      &kp PIPE                     &kp EQUAL   &kp COLON  &kp AT         &none  &none  &none              &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &none      &none
             >;
         };
 
