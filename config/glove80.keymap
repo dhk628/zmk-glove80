@@ -12,7 +12,7 @@
 #define LAYER_MouseFast 7
 #define LAYER_MouseWarp 8
 
-#define SELECT_WORD_DELAY 50
+#define SELECT_WORD_DELAY 10
 
 #include "mouse.dtsi"
 #include "defs.dtsi"
@@ -205,14 +205,14 @@
             select_line_right,
             wait-ms = <SELECT_WORD_DELAY>;
             tap-ms = <SELECT_WORD_DELAY>;
-            bindings = <&kp _HOME &kp LS(_END)>;
+            bindings = <&kp _HOME &kp _HOME &kp LS(_END)>;
         )
 
         ZMK_MACRO(
             select_line_left,
             wait-ms = <SELECT_WORD_DELAY>;
             tap-ms = <SELECT_WORD_DELAY>;
-            bindings = <&kp _END &kp LS(_HOME)>;
+            bindings = <&kp _END &kp _END &kp LS(_HOME)>;
         )
 
         //
