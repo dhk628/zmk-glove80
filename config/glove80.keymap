@@ -123,7 +123,7 @@
         //
 
         #ifndef SELECT_WORD_DELAY
-        #define SELECT_WORD_DELAY 1
+        #define SELECT_WORD_DELAY 10
         #endif
 
         #define select_all kp _C(A)
