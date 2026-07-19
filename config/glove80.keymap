@@ -12,6 +12,8 @@
 #define LAYER_MouseFast 7
 #define LAYER_MouseWarp 8
 
+#define SELECT_WORD_DELAY 50
+
 #include "mouse.dtsi"
 #include "defs.dtsi"
 
