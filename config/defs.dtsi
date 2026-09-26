@@ -63,4 +63,78 @@
 #define _SWITCH_TERMINAL_WINDOW _C(PGDN)
 #define _SWITCH_TERMINAL_WINDOW_IN_GRP LS(DN)
 #define _JUMP_TO_DEFINITION F12
-#define _JUMP_BACK _C(LA(MINUS))
+
+//------------------------------------------------------------------------
+// VS Code: same shortcut on every OS (via _C = Ctrl or Cmd)
+//------------------------------------------------------------------------
+#define _CMD_PALETTE      _C(LS(P))
+#define _QUICK_OPEN       _C(P)
+#define _GOTO_SYMBOL      _C(LS(O))
+#define _GOTO_WS_SYMBOL   _C(T)
+#define _GOTO_LINE        LC(G)        // Ctrl+G on macOS too
+#define _EXPLORER         _C(LS(E))
+#define _SEARCH_FILES     _C(LS(F))
+#define _SCM              LC(LS(G))    // Ctrl+Shift+G on macOS too
+#define _DEBUG_VIEW       _C(LS(D))
+#define _PROBLEMS         _C(LS(M))
+#define _TOGGLE_SIDEBAR   _C(B)
+#define _TOGGLE_PANEL     _C(J)
+#define _TOGGLE_TERMINAL  LC(GRAVE)    // Ctrl+` on macOS too
+#define _CLOSE_EDITOR     _C(W)
+#define _REOPEN_EDITOR    _C(LS(T))
+#define _SPLIT_EDITOR     _C(BSLH)
+#define _GROUP_1          _C(N1)
+#define _GROUP_2          _C(N2)
+#define _GROUP_3          _C(N3)
+#define _ALT_EDITOR       LC(TAB)      // tap = jump to previously used editor
+#define _PEEK_DEF         LA(F12)
+#define _REFERENCES       LS(F12)
+#define _RENAME           F2
+#define _QUICK_FIX        _C(DOT)
+#define _NEXT_PROBLEM     F8
+#define _PREV_PROBLEM     LS(F8)
+#define _SUGGEST          LC(SPACE)
+#define _TOGGLE_COMMENT   _C(FSLH)
+#define _WORD_WRAP        LA(Z)
+#define _JUMP_BRACKET     _C(LS(BSLH))
+#define _ADD_NEXT_MATCH   _C(D)
+
+// Context-routed keys: VS Code keybindings.json decides what these do per
+// language (see vscode-keybindings.jsonc). Same pattern as the terminal macros.
+#define _IDE_PREVIEW      _HYPER(F7)   // markdown: preview to side, latex: view PDF
+#define _IDE_RUN          _HYPER(F8)   // python: run file, latex: build
+
+//------------------------------------------------------------------------
+// VS Code: shortcuts whose defaults differ by OS
+//------------------------------------------------------------------------
+#if OPERATING_SYSTEM == 'M'
+    #define _JUMP_BACK    LC(MINUS)
+    #define _JUMP_FWD     LC(LS(MINUS))
+    #define _PREV_EDITOR  LG(LA(LEFT))
+    #define _NEXT_EDITOR  LG(LA(RIGHT))
+    #define _FOLD         LG(LA(LBKT))
+    #define _UNFOLD       LG(LA(RBKT))
+    #define _FORMAT_DOC   LS(LA(F))
+    #define _EXPAND_SEL   LC(LS(LG(RIGHT)))
+    #define _SHRINK_SEL   LC(LS(LG(LEFT)))
+#elif OPERATING_SYSTEM == 'L'
+    #define _JUMP_BACK    LC(LA(MINUS))
+    #define _JUMP_FWD     LC(LS(MINUS))
+    #define _PREV_EDITOR  LC(PG_UP)
+    #define _NEXT_EDITOR  LC(PG_DN)
+    #define _FOLD         LC(LS(LBKT))
+    #define _UNFOLD       LC(LS(RBKT))
+    #define _FORMAT_DOC   LC(LS(I))
+    #define _EXPAND_SEL   LS(LA(RIGHT))
+    #define _SHRINK_SEL   LS(LA(LEFT))
+#else // 'W'
+    #define _JUMP_BACK    LA(LEFT)
+    #define _JUMP_FWD     LA(RIGHT)
+    #define _PREV_EDITOR  LC(PG_UP)
+    #define _NEXT_EDITOR  LC(PG_DN)
+    #define _FOLD         LC(LS(LBKT))
+    #define _UNFOLD       LC(LS(RBKT))
+    #define _FORMAT_DOC   LS(LA(F))
+    #define _EXPAND_SEL   LS(LA(RIGHT))
+    #define _SHRINK_SEL   LS(LA(LEFT))
+#endif
